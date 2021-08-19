@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+    modeling:
+        container_name: modeling 
+        build: 'modeling/'
+        volumes:
+            - ./modeling/bin:/workdir/bin
+            - ./modeling/src:/workdir/src
+            - ./data/raw:/workdir/data/raw
+            - ./tensorboard_logs:/workdir/tensorboard_logs
+        command: "tail -f /dev/null"
+        environment:
+            - DISPLAY=host.docker.internal:0
+    tensorboard:
+        container_name: tensorboard
+        build: 'tensorboard/'
+        volumes:
+            - ./tensorboard_logs:/workdir/tensorboard_logs
+        command: 'tensorboard --logdir /workdir/tensorboard_logs --bind_all'
+        ports: 
+            - "6006:6006"

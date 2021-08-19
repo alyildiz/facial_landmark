@@ -3,6 +3,14 @@ facial_landmark
 
 Real time facial landmark on CPU
 
+Please download this dataset : https://www.kaggle.com/drgilermo/face-images-with-marked-landmark-points and unzip the file in data/raw to end up with :
+
+├── data
+│   ├── raw       
+│       ├── face_images.npz
+│       ├── facial_keypoints.csv      
+  
+
 Project Organization
 ------------
 
