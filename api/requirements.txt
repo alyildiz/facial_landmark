@@ -9,3 +9,4 @@ opencv-python
 tensorflow
 pandas
 sklearn
+jsonpickle
