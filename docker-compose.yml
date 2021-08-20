@@ -7,6 +7,7 @@ services:
             - ./modeling/src:/workdir/src
             - ./api:/workdir/api
             - ./data/raw:/workdir/data/raw
+            - ./tensorboard_logs:/workdir/tensorboard_logs
         ports:
             - "5000:5000"
         command: "python3 /workdir/api/server.py"
