@@ -25,7 +25,10 @@ Use ```docker exec -it modeling bash``` to get inside the container. From there,
 - ```/workdir/bin/inference.py``` to use inference over an image using one model
 - ```/workdir/bin/train_and_save.py``` to train the BasicCNN model (downloading the dataset is mandatory)
 
-
+WebApp
+==============================
+To run the web app : ```docker-compose up web_app```
+Go to ```localhost:8501``` to visualize the interface.
  
 Project Organization
 ------------
