@@ -2,8 +2,8 @@ import torch
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.loggers import TensorBoardLogger
+from src.constants import TENSORBOARD_LOG_DIR
 
-from src.constants import TENSORBOARD_LOG_DIR 
 
 def train_model(model, module, max_epochs):
     logger = TensorBoardLogger(TENSORBOARD_LOG_DIR, name="BasicCNNModel")

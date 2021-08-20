@@ -4,7 +4,7 @@ from src.data.load_data import load_data
 from src.data.pl_datamodule import DataModule
 from src.models.basic_cnn.pl_model import BasicCNNModel
 from src.models.basic_cnn.train_model import train_model
-from src.utils import training_transformations, preprocess, train_test_split
+from src.utils import preprocess, train_test_split, training_transformations
 from torchsummary import summary
 
 

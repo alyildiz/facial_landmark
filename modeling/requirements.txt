@@ -12,11 +12,10 @@ isort
 pandas
 numpy
 opencv-python
-matplotlib
 torch
 sklearn
 pytorch_lightning
-pillow
 torchvision
 torchsummary
 tensorflow
+mediapipe

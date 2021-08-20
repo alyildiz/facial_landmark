@@ -15,7 +15,7 @@ class BasicCNN(BaseModel):
         x = x.unsqueeze_(0)
         return self.model(x)
 
-    def predict_over_image(self, x):
+    def predict_over_image(self, x, return_image: bool = False):
         n, m = x.shape[:2]
         fd = UltraLightFaceDetecion(FACE_DETECTION_MODEL_PATH, conf_threshold=0.6)
         boxes, scores = fd.inference(x)
@@ -36,4 +36,7 @@ class BasicCNN(BaseModel):
                     x, (int(result[0] + x_data * width), int(result[1] + y_data * height)), 2, (0, 255, 0), 2
                 )
 
-            cv2.imwrite(self.output_file, x)
+        cv2.imwrite(self.output_file, x)
+
+        if return_image:
+            return x

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
+from src.constants import FACE_IMAGES_PATH, FACIAL_KEYPOINTS_PATH
 
-from src.constants import FACIAL_KEYPOINTS_PATH, FACE_IMAGES_PATH
 
 def load_data():
     df_facial_keypoints = pd.read_csv(FACIAL_KEYPOINTS_PATH)

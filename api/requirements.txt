@@ -1,0 +1,11 @@
+-e .
+
+flask
+mediapipe
+torch
+pytorch_lightning
+torchvision
+opencv-python
+tensorflow
+pandas
+sklearn

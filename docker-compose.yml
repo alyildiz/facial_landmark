@@ -1,5 +1,16 @@
 version: '3.7'
 services:
+    api:
+        container_name: api
+        build: 'api/'
+        volumes:
+            - ./modeling/src:/workdir/src
+            - ./api:/workdir/api
+            - ./data/raw:/workdir/data/raw
+        ports:
+            - "5000:5000"
+        command: "python3 /workdir/api/server.py"
+
     modeling:
         container_name: modeling 
         build: 'modeling/'
@@ -20,3 +31,4 @@ services:
         command: 'tensorboard --logdir /workdir/tensorboard_logs --bind_all'
         ports: 
             - "6006:6006"
+            

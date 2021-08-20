@@ -1,11 +1,11 @@
 import argparse
 
 import cv2
+from src.constants import CHECKPOINTS_PATH, DEMO_IMAGE_FILE, OUTPUT_FILE
 from src.models.basic_cnn.basic_cnn_class import BasicCNN
 from src.models.mediapipe.mediapipe_class import Mediapipe
 from src.utils import inference_transformations
 
-from src.constants import DEMO_IMAGE_FILE, CHECKPOINTS_PATH, OUTPUT_FILE
 
 def main(model_name, image_file, checkpoints, output_file):
     im = cv2.imread(image_file)
@@ -29,9 +29,7 @@ if __name__ == "__main__":
         type=str,
         help="""Use BasicCNN for trained model or Mediapipe for SOTA performances""",
     )
-    parser.add_argument(
-        "-i", "--image_file", default=DEMO_IMAGE_FILE, type=str, help="""Path to image file"""
-    )
+    parser.add_argument("-i", "--image_file", default=DEMO_IMAGE_FILE, type=str, help="""Path to image file""")
     parser.add_argument(
         "-c",
         "--checkpoints",
@@ -47,4 +45,9 @@ if __name__ == "__main__":
         help="""Path to saved image""",
     )
     args = parser.parse_args()
-    main(model_name=args.model_name, image_file=args.image_file, checkpoints=args.checkpoints, output_file=args.output_file)
+    main(
+        model_name=args.model_name,
+        image_file=args.image_file,
+        checkpoints=args.checkpoints,
+        output_file=args.output_file,
+    )
