@@ -3,7 +3,7 @@ facial_landmark
 
 Real time facial landmark on CPU
 
-If you want to retrain the model download this dataset : https://www.kaggle.com/drgilermo/face-images-with-marked-landmark-points and unzip the file in data/raw to end up with :
+If you want to retrain the model download this dataset : https://www.kaggle.com/drgilermo/face-images-with-marked-landmark-points and unzip the file in data/raw
 
 Face detection part by : https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/tree/master/tflite
 
