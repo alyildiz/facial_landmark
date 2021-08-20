@@ -10,4 +10,4 @@ COPY ./requirements.txt /workdir/requirements.txt
 RUN pip3 install -r requirements.txt
 
 #for opencv
-#RUN apt-get install ffmpeg libsm6 libxext6 -y
+RUN apt-get install ffmpeg libsm6 libxext6 -y
