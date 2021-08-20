@@ -59,8 +59,16 @@ def preprocess(x, y):
     return x_copy, y_copy
 
 
-basic_transformations = transforms.Compose(
+training_transformations = transforms.Compose(
     [
         transforms.ToTensor(),
+    ]
+)
+
+inference_transformations = transforms.Compose(
+    [
+        transforms.ToTensor(),
+        transforms.Grayscale(),
+        transforms.Resize((96, 96)),
     ]
 )

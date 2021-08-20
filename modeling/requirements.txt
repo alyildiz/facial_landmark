@@ -19,3 +19,4 @@ pytorch_lightning
 pillow
 torchvision
 torchsummary
+tensorflow

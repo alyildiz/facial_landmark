@@ -5,6 +5,8 @@ Real time facial landmark on CPU
 
 Please download this dataset : https://www.kaggle.com/drgilermo/face-images-with-marked-landmark-points and unzip the file in data/raw to end up with :
 
+Face detection part by : https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/tree/master/tflite
+
 ├── data
 │   ├── raw       
 │       ├── face_images.npz

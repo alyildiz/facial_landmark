@@ -1,16 +1,17 @@
 import numpy as np
 import pandas as pd
 
+from src.constants import FACIAL_KEYPOINTS_PATH, FACE_IMAGES_PATH
 
 def load_data():
-    df_facial_keypoints = pd.read_csv("/workdir/data/raw/facial_keypoints.csv")
+    df_facial_keypoints = pd.read_csv(FACIAL_KEYPOINTS_PATH)
 
     # we only keep the rows where we have 30 data points
     df_facial_keypoints = df_facial_keypoints.dropna()
     idx_to_keep = df_facial_keypoints.index.tolist()
     df_facial_keypoints = df_facial_keypoints.reset_index(drop=True)
 
-    db_face_images = np.load("/workdir/data/raw/face_images.npz")["face_images"]
+    db_face_images = np.load(FACE_IMAGES_PATH)["face_images"]
     db_face_images = db_face_images[:, :, idx_to_keep]
 
     db_face_images = np.moveaxis(db_face_images, -1, 0)
