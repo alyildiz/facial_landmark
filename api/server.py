@@ -10,6 +10,9 @@ from src.utils import inference_transformations
 
 app = Flask(__name__)
 
+model_CNN = BasicCNN(CHECKPOINTS_PATH, inference_transformations, OUTPUT_FILE)
+model_mediapipe = Mediapipe(OUTPUT_FILE)
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -19,9 +22,9 @@ def predict():
     img_cv2 = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
 
     if model_name == "BasicCNN":
-        model = BasicCNN(CHECKPOINTS_PATH, inference_transformations, OUTPUT_FILE)
+        model = model_CNN
     elif model_name == "Mediapipe":
-        model = Mediapipe(OUTPUT_FILE)
+        model = model_mediapipe
     else:
         raise ValueError("Model type not supported.")
 

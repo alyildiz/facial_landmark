@@ -6,18 +6,19 @@ from src.models.face_detection.TFLiteFaceDetector import UltraLightFaceDetecion
 
 
 class BasicCNN(BaseModel):
-    def __init__(self, checkpoints, transformations, output_file):
+    def __init__(self, checkpoints, transformations, output_file, detection_confidence: float = 0.5):
         super().__init__(output_file)
         self.model = BasicCNNModel.load_from_checkpoint(checkpoints)
         self.transformations = transformations
+        self.detection_confidence = detection_confidence
 
     def predict(self, x):
         x = x.unsqueeze_(0)
         return self.model(x)
 
-    def predict_over_image(self, x, return_image: bool = False):
+    def predict_over_image(self, x, return_image: bool = False, save_image: bool = True):
         n, m = x.shape[:2]
-        fd = UltraLightFaceDetecion(FACE_DETECTION_MODEL_PATH, conf_threshold=0.6)
+        fd = UltraLightFaceDetecion(FACE_DETECTION_MODEL_PATH, conf_threshold=self.detection_confidence)
         boxes, scores = fd.inference(x)
         for result in boxes.astype(int):
             top_left = (result[0], result[1])
@@ -35,8 +36,8 @@ class BasicCNN(BaseModel):
                 x = cv2.circle(
                     x, (int(result[0] + x_data * width), int(result[1] + y_data * height)), 2, (0, 255, 0), 2
                 )
-
-        cv2.imwrite(self.output_file, x)
+        if save_image:
+            cv2.imwrite(self.output_file, x)
 
         if return_image:
             return x

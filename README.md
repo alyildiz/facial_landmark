@@ -46,6 +46,8 @@ Project Organization
     │
     ├── tensorboard_logs   <- Logs of training, contains demo model
     │
+    ├── web_app            <- Web app container
+    │
     ├── docker-compose.yml <- to run all containers
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported

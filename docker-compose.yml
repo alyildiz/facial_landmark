@@ -31,4 +31,16 @@ services:
         command: 'tensorboard --logdir /workdir/tensorboard_logs --bind_all'
         ports: 
             - "6006:6006"
+    
+    web_app:
+        container_name: web_app
+        build: 'web_app/'
+        volumes:
+            - ./modeling/src:/workdir/src
+            - ./web_app:/workdir/web_app
+            - ./data/raw:/workdir/data/raw
+            - ./tensorboard_logs:/workdir/tensorboard_logs
+        ports:
+            - "8501:8501"
+        command: "streamlit run web_app/server.py"
             
